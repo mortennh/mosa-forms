@@ -13,7 +13,7 @@
  * @subpackage Mosa_Forms/includes
  */
 
-use WordPlate\Acf\Location;
+use Extended\ACF\Location;
 
 /**
  * The core plugin class.
@@ -188,7 +188,7 @@ class Mosa_Forms
 				'key' => $this->plugin_name . 'form-selection',
 				'fields' => $fields['form'],
 				'location' => [
-					Location::if('page_template', 'tpl.mosa-forms.php')
+					Location::where('page_template', 'tpl.mosa-forms.php')
 				],
 			]);
 			
@@ -200,7 +200,7 @@ class Mosa_Forms
                 'key' => $this->plugin_name . 'form-fields',
                 'fields' => $fields['settings'],
                 'location' => [
-                    Location::if('post_type', 'mosa_form')
+                    Location::where('post_type', 'mosa_form')
                 ],
             ]);
         });

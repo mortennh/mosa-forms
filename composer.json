@@ -3,7 +3,7 @@
     "type": "wp-plugin",
     "require": {
         "log1x/poet": "^2.0",
-        "wordplate/acf": "^11.2",
+        "schrittweiter/extended-acf": "dev-main",
         "johnbillion/extended-cpts": "^4.5"
     },
     "autoload": {
@@ -16,5 +16,12 @@
             "name": "Morten Sassi",
             "email": "dev@mortensassi.com"
         }
-    ]
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "platform": {
+            "php": "8.1.0"
+        }
+    }
 }
