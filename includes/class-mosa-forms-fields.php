@@ -1,20 +1,20 @@
 <?php
 
 use Schrittweiter\Acf\Fields\Table;
-use WordPlate\Acf\ConditionalLogic;
-use WordPlate\Acf\Fields\FlexibleContent;
-use WordPlate\Acf\Fields\Group;
-use WordPlate\Acf\Fields\Image;
-use WordPlate\Acf\Fields\Layout;
-use WordPlate\Acf\Fields\Number;
-use WordPlate\Acf\Fields\PostObject;
-use WordPlate\Acf\Fields\Repeater;
-use WordPlate\Acf\Fields\Select;
-use WordPlate\Acf\Fields\Tab;
-use WordPlate\Acf\Fields\Textarea;
-use WordPlate\Acf\Fields\TrueFalse;
-use WordPlate\Acf\Fields\WysiwygEditor;
-use WordPlate\Acf\Fields\Text;
+use Extended\ACF\ConditionalLogic;
+use Extended\ACF\Fields\FlexibleContent;
+use Extended\ACF\Fields\Group;
+use Extended\ACF\Fields\Image;
+use Extended\ACF\Fields\Layout;
+use Extended\ACF\Fields\Number;
+use Extended\ACF\Fields\PostObject;
+use Extended\ACF\Fields\Repeater;
+use Extended\ACF\Fields\Select;
+use Extended\ACF\Fields\Tab;
+use Extended\ACF\Fields\Textarea;
+use Extended\ACF\Fields\TrueFalse;
+use Extended\ACF\Fields\WysiwygEditor;
+use Extended\ACF\Fields\Text;
 
 return [
 	'form'     => [
@@ -60,7 +60,7 @@ return [
 																	  ]),
 															 Text::make(__('Fehlermeldung', 'mosa'), 'error_message')
 																 ->conditionalLogic([
-																	 ConditionalLogic::if('is_required')->equals(1)
+																	 ConditionalLogic::where('is_required', '==', 1)
 																 ])
 																 ->required(),
 															 Repeater::make(__('Groups', 'mosa'), 'groups')
@@ -119,7 +119,7 @@ return [
 																	  ]),
 															 Text::make(__('Fehlermeldung', 'mosa'), 'error_message')
 																 ->conditionalLogic([
-																	 ConditionalLogic::if('is_required')->equals(1)
+																	 ConditionalLogic::where('is_required', '==', 1)
 																 ])
 																 ->required(),
 															 Select::make(__('Type', 'mosa'), 'type')
@@ -164,7 +164,7 @@ return [
 																	  ]),
 															 Text::make(__('Fehlermeldung', 'mosa'), 'error_message')
 																 ->conditionalLogic([
-																	 ConditionalLogic::if('is_required')->equals(1)
+																	 ConditionalLogic::where('is_required', '==', 1)
 																 ])
 																 ->required(),
 															 TrueFalse::make(__('Toggle Min value', 'mosa'), 'toggle_min')
@@ -177,7 +177,7 @@ return [
 																	  Number::make(__('Value', 'mosa'), 'val')
 																  ])
 																	->conditionalLogic([
-																		ConditionalLogic::if('toggle_min')->equals(1)
+																		ConditionalLogic::where('toggle_min', '==', 1)
 																	]),
 															 Group::make(__('Max Value', 'mosa'), 'max')
 																  ->layout('block')
@@ -216,7 +216,7 @@ return [
 																	  ]),
 															 Text::make(__('Fehlermeldung', 'mosa'), 'error_message')
 																 ->conditionalLogic([
-																	 ConditionalLogic::if('is_required')->equals(1)
+																	 ConditionalLogic::where('is_required', '==', 1)
 																 ])
 																 ->required(),
 															 Repeater::make(__('Buttons', 'mosa'), 'buttons')
@@ -245,9 +245,7 @@ return [
 																			 ]),
 																		 Text::make(__('Info text', 'mosa'), 'info')
 																			 ->conditionalLogic([
-																				 ConditionalLogic::if(
-																					 'has_info'
-																				 )->equals(1)
+																				 ConditionalLogic::where('has_info', '==', 1)
 																			 ])
 																	 ])
 														 ]),
@@ -273,7 +271,7 @@ return [
 																	  ]),
 															 Text::make(__('Fehlermeldung', 'mosa'), 'error_message')
 																 ->conditionalLogic([
-																	 ConditionalLogic::if('is_required')->equals(1)
+																	 ConditionalLogic::where('is_required', '==', 1)
 																 ])
 																 ->required(),
 															 Repeater::make(__('Choices', 'mosa'), 'choices')
@@ -316,7 +314,7 @@ return [
 																	  ]),
 															 Text::make(__('Fehlermeldung', 'mosa'), 'error_message')
 																 ->conditionalLogic([
-																	 ConditionalLogic::if('is_required')->equals(1)
+																	 ConditionalLogic::where('is_required', '==', 1)
 																 ])
 																 ->required(),
 															 Text::make(__('Title', 'mosa'), 'title'),
@@ -368,7 +366,7 @@ return [
 																	  ]),
 															 Text::make(__('Fehlermeldung', 'mosa'), 'error_message')
 																 ->conditionalLogic([
-																	 ConditionalLogic::if('is_required')->equals(1)
+																	 ConditionalLogic::where('is_required', '==', 1)
 																 ])
 																 ->required(),
 															 WysiwygEditor::make(
@@ -396,7 +394,7 @@ return [
 																	 'width' => '50%'
 																 ])
 																 ->conditionalLogic([
-																	 ConditionalLogic::if('is_required')->equals(1)
+																	 ConditionalLogic::where('is_required', '==', 1)
 																 ])
 																 ->required(),
 															 Repeater::make(__('Counter', 'mosa'), 'inputs')
@@ -440,7 +438,7 @@ return [
 																	  ]),
 															 Text::make(__('Fehlermeldung', 'mosa'), 'error_message')
 																 ->conditionalLogic([
-																	 ConditionalLogic::if('is_required')->equals(1)
+																	 ConditionalLogic::where('is_required', '==', 1)
 																 ])
 																 ->required(),
 															 Repeater::make(__('Buttons', 'mosa'), 'buttons')
@@ -462,9 +460,7 @@ return [
 																			 ]),
 																		 Text::make(__('Info text', 'mosa'), 'info')
 																			 ->conditionalLogic([
-																				 ConditionalLogic::if(
-																					 'has_info'
-																				 )->equals(1)
+																				 ConditionalLogic::where('has_info', '==', 1)
 																			 ])
 																	 ])
 														 ]),
@@ -483,7 +479,7 @@ return [
 																 ]),
 														Text::make(__('Fehlermeldung', 'mosa'), 'error_message')
 															->conditionalLogic([
-																ConditionalLogic::if('is_required')->equals(1)
+																ConditionalLogic::where('is_required', '==', 1)
 															])
 															->required(),
 													]),
